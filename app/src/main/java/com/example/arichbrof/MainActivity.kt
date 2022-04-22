@@ -6,14 +6,14 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
-import android.text.Editable
 import android.util.Base64
 import android.util.Log
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.io.ByteArrayOutputStream
@@ -135,60 +135,52 @@ class MainActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-
-
-
+                    Log.d("MainActivity", "${document.id} => ${document.data}")
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-
-
-
-
-
-
-
-
-
     }
 
-
-
-
     private fun BajarDatos(){
+
+        val listaFotos = ArrayList<Imagenes>()
+
 
         db.collection("users")
             .get()
             .addOnSuccessListener { result ->
+
                 for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-
-
+                    Log.d("MainActivity", "${document.id} => ${document.data}")
 
                    f64 = document.data.get("Code64").toString()
                    t64 = document.data.get("Titulo").toString()
 
-
-
-
-
-
-
                     val bytes = Base64.decode(f64, Base64.DEFAULT)
                     // Initialize bitmap
                     val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+
+                    // Creo objeto foto
+                    var foto = Imagenes("",t64)
+
+                    // Anhado la foto a la lista
+                    listaFotos.add(foto)
+
+
+
+
+
+
+
+
                     // set bitmap on imageView
                     ivFoto.setImageBitmap(bitmap)
                     tvTitulo.text = t64
-
-
-
-
-
-
+break;
+                    Handler().postDelayed({
+                    }, 3000)
                 }
             }
             .addOnFailureListener { exception ->
