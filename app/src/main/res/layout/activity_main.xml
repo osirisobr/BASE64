@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/ivFoto"
+        android:layout_width="278dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/etTitulo"
+        android:layout_width="241dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="TITULO DE LA FOTO"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFoto" />
+
+    <Button
+        android:id="@+id/btCargarImagen"
+        android:layout_width="191dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:text="Decodificar base 64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSelecConvert" />
+
+    <Button
+        android:id="@+id/btSubir"
+        android:layout_width="92dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
+        android:text="subir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btCargarImagen" />
+
+    <Button
+        android:id="@+id/btSelecConvert"
+        android:layout_width="315dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="80dp"
+        android:text="Seleccionar y transformar a base 64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFoto" />
+
+    <Button
+        android:id="@+id/btBajar"
+        android:layout_width="91dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
+        android:text="bajar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSubir" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="TITULO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFoto" />
+
+    <Button
+        android:id="@+id/btRv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="8dp"
+        android:text="RV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btBajar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
